@@ -1,8 +1,8 @@
 package Models;
 
 public class Feedback {
-    Long idFeedback;
-    String mensagem;
+    private Long idFeedback;
+    private String mensagem;
 
     public Feedback(Long idFeedback, String mensagem) {
         this.idFeedback = idFeedback;

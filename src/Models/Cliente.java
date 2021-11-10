@@ -6,7 +6,10 @@ import java.util.List;
 public class Cliente {
     private Long idCliente;
     private String nome;
-    private List<Feedback> mensagemsFeeback = new ArrayList<>();
+    private List<Feedback> mensagensFeedback = new ArrayList<>();
+
+    public Cliente() {
+    }
 
     public Cliente(Long id, String nome) {
         this.idCliente = id;
@@ -15,11 +18,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "id=" + idCliente +
-                ", nome='" + nome + '\'' +
-                ", mensagemsFeeback=" + mensagemsFeeback +
-                '}';
+        return "Cliente ID " + idCliente + ": " + nome + " | Feedbacks: " + mensagensFeedback;
     }
 
     public Long getIdCliente() {
@@ -38,11 +37,15 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public List<Feedback> getMensagemsFeeback() {
-        return mensagemsFeeback;
+    public List<Feedback> getMensagensFeedback() {
+        return mensagensFeedback;
     }
 
-    public void setMensagemsFeeback(List<Feedback> mensagemsFeeback) {
-        this.mensagemsFeeback = mensagemsFeeback;
+    public void setMensagensFeedback(List<Feedback> mensagensFeedback) {
+        this.mensagensFeedback = mensagensFeedback;
+    }
+
+    public void addFeedback(Feedback feedback) {
+        this.mensagensFeedback.add(feedback);
     }
 }
