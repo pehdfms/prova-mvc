@@ -63,17 +63,40 @@ public class ClienteView {
     private void menuMensagens(Cliente cliente) {
         Scanner ler = new Scanner(System.in);
 
-        System.out.println("--- Cliente Selecionado ---");
-        System.out.println(cliente);
+        while (true) {
+            System.out.println("--- Cliente Selecionado ---");
+            System.out.println(cliente);
 
-        System.out.println("1 - Listar Mensagens");
-        System.out.println("2 - Cadastrar Mensagem");
+            System.out.println("1 - Listar Mensagens");
+            System.out.println("2 - Cadastrar Mensagem");
+            System.out.println("3 - Confirmar");
 
-        Integer escolha = ler.nextInt();
-        ler.nextLine();
+            Integer escolha = ler.nextInt();
+            ler.nextLine();
+
+            switch (escolha) {
+                case 1:
+                    System.out.println(cliente.getMensagensFeedback());
+                    break;
+                case 2:
+                    System.out.println("Escreva uma nova mensagem:");
+                    controller.addFeedback(cliente, ler.nextLine());
+                    break;
+                case 3:
+                    return;
+                default:
+                    System.out.println("Escolha invalida!");
+                    break;
+            }
+        }
     }
 
     private void selecionarCliente() {
+        if (controller.getModels().size() == 0) {
+            System.out.println("Nao existem clientes cadastrados.");
+            return;
+        }
+
         Scanner ler = new Scanner(System.in);
 
         System.out.println("--- Selecionar Cliente ---");

@@ -41,7 +41,7 @@ public class ClientesDAO {
 
     public Cliente getById(Long id) {
         for (Cliente cliente : clientes) {
-            if (cliente.getIdCliente() == id) return cliente;
+            if (cliente.getIdCliente() == id.longValue()) return cliente;
         }
 
         return null;
@@ -57,7 +57,7 @@ public class ClientesDAO {
     }
 
     public void addFeedback(Cliente cliente, String feedback) {
-        Feedback novoFeedback = new Feedback(Long.valueOf(4), feedback);
+        Feedback novoFeedback = new Feedback(4L, feedback);
 
         log(mostrarCliente(cliente) + "adicionou feedback: " + feedback);
         cliente.addFeedback(novoFeedback);

@@ -19,4 +19,8 @@ public class ClienteController {
     public Cliente getById(Long id) {
         return dao.getById(id);
     }
+
+    public void addFeedback(Cliente cliente, String mensagem) {
+        dao.addFeedback(cliente, mensagem);
+    }
 }
